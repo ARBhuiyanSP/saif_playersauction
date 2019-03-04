@@ -57,6 +57,7 @@
 											<div class="btn-group">
 												<button type="button" class="btn btn-default dropdown-toggle waves-effect" data-toggle="dropdown" aria-expanded="false"> Action <span class="caret"></span> </button>
 												<ul class="dropdown-menu">
+													<li><a href="view-player.php?id=<?php echo $row['id']; ?>" target="blank">View</a></li>
 													<li><a href="edit-player.php?id=<?php echo $row['id']; ?>">Edit</a></li>
 													<li><a href="delete-player.php?id=<?php echo $row['id']; ?>">Delete</a></li>
 												</ul>

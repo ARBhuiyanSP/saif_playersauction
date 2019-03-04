@@ -31,7 +31,7 @@ $id=$_GET['id'];
 										$row = $sql->fetch();
 								?>
                                 <h4 class="m-t-0 header-title"><b><?php echo $row['name'];?></b>
-								<form action="player-edit.php" method="post" enctype="multipart/form-data">
+								<form action="players-edit.php" method="post" enctype="multipart/form-data">
 									<input type="hidden" value="<?php echo $row['id'];?>" name="id" >
 
 									<div class="row">
@@ -103,7 +103,7 @@ $id=$_GET['id'];
 											</div>
 											
 											<div class="form-group">
-											<label for="Marritual Status" class="col-md-2 control-label">Marritual Status</label>
+											<label for="Marritual Status" class="col-md-2 control-label">Marital Status</label>
 												<div class="col-md-3">
 													<select id="married" name="married" class="form-control" required="">
 														<option value="<?php echo $row['married']; ?>"><?php echo $row['married']; ?></option>
@@ -133,12 +133,18 @@ $id=$_GET['id'];
 											<div class="form-group">
 												<label for="Jersey Name" class="col-md-2 control-label">Jersey Name</label>
 												<div class="col-md-3">
-													<input type="text" class="form-control" id="religion" value="<?php echo $row['jerseyname'];?>" name="hometel">
+													<input type="text" class="form-control" id="religion" value="<?php echo $row['jerseyname'];?>" name="jerseyname">
 												</div>
 											
 												<label for="Position" class="col-md-2 control-label">Position</label>
 												<div class="col-md-3">
-													<input type="text" class="form-control" id="blood" value="<?php echo $row['position'];?>" name="mobile">
+													<select id="position" name="position" class="form-control" required="">
+														<option value="<?php echo $row['position'];?>"><?php echo $row['position'];?></option>
+														<option value="Goalkeeper">Goalkeeper</option>
+														<option value="Defender">Defender</option>
+														<option value="Midfielder">Midfielder</option>
+														<option value="Forward">Forward</option>
+													</select>
 												</div>
 											</div>
 											
@@ -150,7 +156,7 @@ $id=$_GET['id'];
 											
 												<label for="Height" class="col-md-2 control-label">Height</label>
 												<div class="col-md-3">
-													<input type="text" class="form-control" id="blood" value="<?php echo $row['height'];?>" name="position">
+													<input type="text" class="form-control" id="blood" value="<?php echo $row['height'];?>" name="height">
 												</div>
 											</div>
 											
@@ -160,17 +166,18 @@ $id=$_GET['id'];
 												<div class="col-md-3">
 													<input type="text" class="form-control" id="religion" value="<?php echo $row['weight'];?>" name="weight">
 												</div>
+												
+												<label class="col-md-2 control-label" for="">Photo</label>
+                                                <span class="desc"><img height="100px" src="../img/players/<?php echo $row['photo']; ?>"  style="background-color:#9972B5;"/></span>
+												<input type="hidden" name="old_image" size="50" value="<?php echo $row['photo']; ?>"  />
+                                                <div class="col-md-3">
+                                                    <input type="file" class="form-control" id="formfield10" name="prt_image" >
+                                                </div>
 											
 											</div>
 											<div class="form-group">
 											
-												<label class="col-md-2 control-label" for="">Photo</label>
-                                                <span class="desc"><img height="100px" src="../img/players/<?php echo $row['photo']; ?>"  style="background-color:#9972B5;"/></span>
-												<input type="hidden" name="old_image" size="50" value="<?php echo $row['photo']; ?>"  />
-                                                <div class="controls">
-                                                    <input type="file" class="form-control" id="formfield10" name="prt_image" >
-													<span class="desc">***300x60 | e.g. "logo.png"</span>
-                                                </div>
+												
 											</div>
 											<div class="form-group">
 												<div class="col-md-offset-5">
